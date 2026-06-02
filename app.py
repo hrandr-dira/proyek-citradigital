@@ -155,7 +155,7 @@ with st.sidebar:
 # ─── TABS ────────────────────────────────────────────────────────────────────
 tab_input, tab_grayscale, tab_binary, tab_arithmetic, tab_logic, \
     tab_histogram, tab_convolution, tab_morphology = st.tabs([
-    "📷 Input",
+    "😂 Input",
     "🌑 Grayscale",
     "⬛ Biner",
     "➕ Aritmatika",
