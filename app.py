@@ -26,9 +26,11 @@ st.set_page_config(
 # ─── CSS Kustom ─────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
 
 .main { background-color: #0a0e1a; }
 [data-testid="stSidebar"] { background-color: #0d1120 !important; border-right: 1px solid #1e2540; }
@@ -155,7 +157,7 @@ with st.sidebar:
 # ─── TABS ────────────────────────────────────────────────────────────────────
 tab_input, tab_grayscale, tab_binary, tab_arithmetic, tab_logic, \
     tab_histogram, tab_convolution, tab_morphology = st.tabs([
-    "😂 Input",
+    "📷 Input",
     "🌑 Grayscale",
     "⬛ Biner",
     "➕ Aritmatika",
