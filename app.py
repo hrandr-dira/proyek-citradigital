@@ -26,44 +26,165 @@ st.set_page_config(
 # ─── CSS Kustom ─────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html, body, [class*="css"] {
     font-family: 'Poppins', sans-serif;
 }
 
-.main { background-color: #0a0e1a; }
-[data-testid="stSidebar"] { background-color: #0d1120 !important; border-right: 1px solid #1e2540; }
+/* Background utama */
+.stApp {
+    background: #FFF0C4;
+}
 
-h1, h2, h3 { font-family: 'Space Mono', monospace !important; letter-spacing: -0.5px; }
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: #3E0703 !important;
+    border-right: 2px solid #8C1007;
+}
 
-.stTabs [data-baseweb="tab-list"] { gap: 4px; background: #0d1120; border-radius: 10px; padding: 4px; }
+/* Header */
+h1 {
+    color: #660B05 !important;
+    font-weight: 700 !important;
+}
+
+h2, h3 {
+    color: #660B05 !important;
+    font-weight: 600 !important;
+}
+
+/* Teks */
+p, label, span, div {
+    color: #3E0703;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    background: #F8E5B5;
+    padding: 6px;
+    border-radius: 15px;
+}
+
 .stTabs [data-baseweb="tab"] {
-    background: transparent; border-radius: 8px; color: #6b7db3;
-    font-family: 'Space Mono', monospace; font-size: 12px; padding: 8px 16px;
+    background: transparent;
+    color: #660B05;
+    border-radius: 10px;
+    font-weight: 500;
 }
-.stTabs [aria-selected="true"] { background: #1a2a6c !important; color: #00d4ff !important; }
 
+.stTabs [aria-selected="true"] {
+    background: #660B05 !important;
+    color: #FFF0C4 !important;
+}
+
+/* Card Statistik */
 .metric-box {
-    background: linear-gradient(135deg, #111827, #1a2035);
-    border: 1px solid #1e2d5a;
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-bottom: 8px;
+    background: white;
+    border: 2px solid #8C1007;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(62,7,3,0.12);
 }
-.metric-label { font-size: 11px; color: #6b7db3; text-transform: uppercase; letter-spacing: 1px; }
-.metric-value { font-size: 20px; font-weight: 700; color: #00d4ff; font-family: 'Space Mono', monospace; }
 
+.metric-label {
+    color: #660B05;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.metric-value {
+    color: #8C1007;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Badge */
 .badge {
-    display: inline-block; background: #1a2a6c;
-    color: #7dd3fc; border-radius: 20px;
-    padding: 2px 10px; font-size: 11px; font-family: 'Space Mono', monospace;
-    margin-right: 4px;
+    display: inline-block;
+    background: #660B05;
+    color: #FFF0C4;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
 }
-.badge-green { background: #0d2e1a; color: #4ade80; }
-.badge-yellow { background: #2d2000; color: #fbbf24; }
 
-div[data-testid="stImage"] img { border-radius: 10px; border: 1px solid #1e2d5a; }
+.badge-green {
+    background: #8C1007;
+    color: #FFF0C4;
+}
+
+.badge-yellow {
+    background: #FFF0C4;
+    color: #660B05;
+    border: 1px solid #660B05;
+}
+
+/* Tombol */
+.stButton > button {
+    background: #660B05;
+    color: #FFF0C4;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.stButton > button:hover {
+    background: #8C1007;
+    transform: translateY(-2px);
+}
+
+/* Download Button */
+.stDownloadButton > button {
+    background: #660B05;
+    color: #FFF0C4;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+}
+
+.stDownloadButton > button:hover {
+    background: #8C1007;
+}
+
+/* Selectbox */
+.stSelectbox div[data-baseweb="select"] {
+    border-radius: 12px;
+}
+
+/* Slider */
+.stSlider {
+    color: #660B05;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    color: #660B05 !important;
+    font-weight: 600;
+}
+
+/* Gambar */
+div[data-testid="stImage"] img {
+    border-radius: 16px;
+    border: 3px solid #8C1007;
+    box-shadow: 0 4px 15px rgba(62,7,3,0.15);
+}
+
+/* Info Box */
+[data-testid="stInfo"] {
+    background: #FFF7DD;
+    border-left: 5px solid #660B05;
+}
+
+/* Warning Box */
+[data-testid="stAlert"] {
+    border-radius: 12px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -122,8 +243,20 @@ with st.sidebar:
 
 
 # ─── MAIN AREA ───────────────────────────────────────────────────────────────
-st.markdown("# 🔬 Pengolahan Citra Digital")
-st.markdown("Aplikasi pemrosesan gambar berbasis Python · OpenCV · Streamlit")
+st.markdown("""
+<h1 style='text-align:center'>
+Pengolahan Citra Digital
+</h1>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<p style='text-align:center;
+font-size:18px;
+color:#660B05'>
+oleh : -RANGERS MANIA-
+</p>
+""", unsafe_allow_html=True)
+
 st.markdown("---")
 
 if uploaded_file is None:
