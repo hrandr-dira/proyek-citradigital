@@ -18,7 +18,7 @@ from modules.morphology import apply_morphology, get_se_display, list_se, list_o
 # ─── Konfigurasi halaman ────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Digital Image Processing",
-    page_icon="🔬",
+    page_icon=Image.open("assets/rangers.png"),
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -91,7 +91,8 @@ def display_image_pair(col_left, col_right, img_orig, img_result, label_orig="In
 
 # ─── SIDEBAR ────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🔬 Citra Digital")
+    st.image("assets/rangers.png", width=80)
+    st.markdown("## Citra Digital")
     st.markdown("---")
 
     st.markdown("### 📁 Input Gambar")
@@ -112,7 +113,11 @@ with st.sidebar:
 
 
 # ─── MAIN AREA ───────────────────────────────────────────────────────────────
-st.markdown("# 🔬 Pengolahan Citra Digital")
+col_logo, col_title = st.columns([1, 8])
+with col_logo:
+    st.image("assets/rangers.png", width=60)
+with col_title:
+    st.markdown("# Pengolahan Citra Digital")
 st.markdown("Aplikasi pemrosesan gambar berbasis Python · OpenCV · Streamlit")
 st.markdown("---")
 
