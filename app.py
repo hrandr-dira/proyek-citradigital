@@ -108,16 +108,6 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.markdown("""
-    <div class="metric-box">
-        <div class="metric-label">Total Poin Tersedia</div>
-        <div class="metric-value">90 poin</div>
-    </div>
-    <span class="badge badge-green">Wajib ✓ 40p</span>
-    <span class="badge badge-yellow">Opsional ✓ 50p</span>
-    """, unsafe_allow_html=True)
-
-    st.markdown("---")
     st.caption("Aplikasi Pengolahan Citra Digital\nDibuat dengan Python + Streamlit")
 
 
