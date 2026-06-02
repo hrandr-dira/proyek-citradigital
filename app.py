@@ -273,7 +273,7 @@ with tab_arithmetic:
         arith_op = st.selectbox(
             "Operasi",
             ["add_scalar", "subtract_scalar"],
-            format_func=lambda x: {"add_scalar": "Tambah (+)", "subtract_scalar": "Kurang (−)"}[x],
+            format_func=lambda x: {"add_scalar": "Brightness", "subtract_scalar": "contrast"}[x],
         )
         scalar_val = st.slider("Nilai Scalar", 0, 255, 50)
         result_arith = arithmetic_operation(img1, None, arith_op, scalar=scalar_val)
