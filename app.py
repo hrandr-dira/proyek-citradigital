@@ -337,7 +337,6 @@ with tab_logic:
 with tab_histogram:
     st.subheader("📊 Histogram")
     st.caption("Distribusi intensitas piksel pada gambar input")
-    st.markdown('<span class="badge badge-yellow">+10 poin</span>', unsafe_allow_html=True)
 
     hist_mode = st.radio("Mode", ["Gambar Asli (RGB)", "Gambar Grayscale"], horizontal=True)
 
@@ -359,7 +358,6 @@ with tab_histogram:
 with tab_convolution:
     st.subheader("🔲 Konvolusi & Filter")
     st.caption("Terapkan filter konvolusi pada gambar menggunakan kernel yang tersedia")
-    st.markdown('<span class="badge badge-yellow">+20 poin</span>', unsafe_allow_html=True)
 
     filter_name = st.selectbox("🎛️ Pilih Filter", list_filters())
 
@@ -388,7 +386,6 @@ with tab_convolution:
 with tab_morphology:
     st.subheader("🔮 Operasi Morfologi")
     st.caption("Dilasi, Erosi, Opening, dan Closing menggunakan berbagai Structuring Element")
-    st.markdown('<span class="badge badge-yellow">+20 poin</span>', unsafe_allow_html=True)
 
     col_a, col_b, col_c = st.columns(3)
     with col_a:
