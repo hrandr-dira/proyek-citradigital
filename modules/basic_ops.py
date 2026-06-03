@@ -35,20 +35,20 @@ def arithmetic_operation(
     operation: 'add', 'subtract', 'multiply', 'divide',
                'add_scalar', 'subtract_scalar'
     """
-    # Pastikan kedua gambar berukuran sama jika diperlukan
+    # Resize img2 agar sama persis dengan img1 (bukan crop keduanya)
     if operation in ("add", "subtract", "multiply", "divide"):
-        h = min(img1.shape[0], img2.shape[0])
-        w = min(img1.shape[1], img2.shape[1])
-        a = img1[:h, :w].astype(np.float32)
-        b = img2[:h, :w].astype(np.float32)
+        h, w = img1.shape[0], img1.shape[1]             # baris 40 ← BERUBAH
+        img2_resized = cv2.resize(img2, (w, h))          # baris 41 ← BERUBAH (baris baru)
+        a = img1.astype(np.float32)                      # baris 43 ← BERUBAH
+        b = img2_resized.astype(np.float32)              # baris 44 ← BERUBAH
 
-        if operation == "add":
-            result = cv2.add(img1[:h, :w], img2[:h, :w])
-        elif operation == "subtract":
-            result = cv2.subtract(img1[:h, :w], img2[:h, :w])
-        elif operation == "multiply":
-            result = np.clip(a * b / 255.0, 0, 255).astype(np.uint8)
-        elif operation == "divide":
+    if operation == "add":
+        result = cv2.add(img1, img2_resized)         # baris 47 ← BERUBAH
+    elif operation == "subtract":
+        result = cv2.subtract(img1, img2_resized)    # baris 49 ← BERUBAH
+    elif operation == "multiply":
+        result = np.clip(a * b / 255.0, 0, 255).astype(np.uint8)
+    elif operation == "divide":
             with np.errstate(divide="ignore", invalid="ignore"):
                 result = np.where(b != 0, np.clip(a / b * 128, 0, 255), 0).astype(
                     np.uint8
